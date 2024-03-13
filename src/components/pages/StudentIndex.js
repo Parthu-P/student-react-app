@@ -7,12 +7,15 @@ import ViewStudents from "../student/ViewStudents";
 import ViewClasses from "../class/ViewClasses";
 import ViewSubjects from "../subject/ViewSubjects";
 import AddClass from "../class/AddClass";
+import AddSubject from "../subject/AddSubject";
+import EditClass from "../class/EditClass";
+import './studentindex.css'
 
 function StudentIndex() {
   return (
     <div className="container-fluid">
       <BrowserRouter>
-        <header className="bg-dark text-white p-2 text-center">
+        <header>
           <span className="h3">Student-Info</span>
         </header>
         <section className="row mt-4">
@@ -52,6 +55,9 @@ function StudentIndex() {
               <Route path="/viewclasses" element={<ViewClasses />} />
               <Route path="/viewsubjects" element={<ViewSubjects />} />
               <Route path="/viewclasses/addclass" element={<AddClass />} />
+              <Route path="/viewsubjects/addsubject" element={<AddSubject />} />
+              <Route path="/viewstudents/addstudent" element={<AddStudent />} />
+              <Route path="/viewclasses/editclass/:classId" element={<EditClass />} />
             </Routes>
           </main>
         </section>

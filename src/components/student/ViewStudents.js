@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ViewStudents() {
   const [students, setStudents] = useState([]);
@@ -15,6 +16,11 @@ function ViewStudents() {
   }, []);
   return (
     <div className="container-fluid">
+      <div className="btn btn-dark w-10 mb-2 mt-2">
+              <Link to="/viewstudents/addstudent" className="text-white text-decoration-none">
+                +AddStudent
+              </Link>
+            </div>
       <form className="form-control">
         <table className="table table-dark table-striped-columns">
           <thead>

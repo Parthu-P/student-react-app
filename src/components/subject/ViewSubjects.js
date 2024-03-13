@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ViewSubjects() {
   const [subjects, setSubjects] = useState([]);
@@ -15,6 +16,11 @@ function ViewSubjects() {
   }, []);
   return (
     <div className="container-fluid">
+      <div className="btn btn-dark w-10 mb-2 mt-2">
+              <Link to="/viewsubjects/addsubject" className="text-white text-decoration-none">
+                +AddSubject
+              </Link>
+            </div>
         
       <form className="form-control">
         <table className="table table-dark table-striped-columns">
@@ -25,7 +31,7 @@ function ViewSubjects() {
               <th scope="col">Code</th>
               <th scope="col">Create</th>
               <th scope="col">Update</th>
-              <th scope="col">Subjects</th>
+              <th scope="col">Class</th>
             </tr>
           </thead>
           <tbody>
@@ -39,7 +45,7 @@ function ViewSubjects() {
                   <td>{subject.code}</td>
                   <td>{subject.createdDate}</td>
                   <td>{subject.updatedDate}</td>
-                  <td>{subject.updatedDate}</td>
+                  <td>{subject.classId}</td>
                 </tr>
               );
             })}
