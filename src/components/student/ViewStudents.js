@@ -22,7 +22,7 @@ function ViewStudents() {
               </Link>
             </div>
       <form className="form-control">
-        <table className="table table-dark table-striped-columns">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">Id</th>

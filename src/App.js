@@ -3,8 +3,10 @@ import StudentIndex from './components/pages/StudentIndex';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container-fluid">
+      <div className='shade'>
       <StudentIndex/>
+      </div>
     </div>
   );
 }

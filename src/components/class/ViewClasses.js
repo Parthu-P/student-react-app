@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ViewClasses() {
+
   const [classes, setClasses] = useState([]);
 
   function LoadClasses() {
@@ -29,16 +30,16 @@ function ViewClasses() {
   return (
     <div className="container-fluid">
       <div aria-label="AddClass">
-        <div className="btn btn-dark w-10 mb-2 mt-2">
+        <div className="btn btn-light mb-2 mt-2">
           <Link
             to="/viewclasses/addclass"
-            className="text-white text-decoration-none"
+            className="text-info text-decoration-none"
           >
             +AddClass
           </Link>
         </div>
         <form className="form-control">
-          <table className="table table-dark table-striped-columns">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Id</th>

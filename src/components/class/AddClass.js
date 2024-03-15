@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./addclass.css";
 import * as yup from "yup";
 
@@ -38,14 +38,16 @@ function AddClass() {
     },
   });
   return (
-    <div className="container-fluid">
+    <div className="container-fluid col-1 w-75 me-5">
       <form
-        className="bg-dark text-white p-2 mb-2 w-45 "
+        className="text-white p-2 mb-2 w-45 col-5 bg-info-subtle mt-5"
         onSubmit={formik.handleSubmit}
       >
         <div className="mb-3 row  ">
-          <label className="col-sm-1 col-form-label text-bold">Id</label>
-          <div className="col-sm-6">
+          <label className="col-sm-2 col-form-label text-bold text-dark">
+            Class Id
+          </label>
+          <div>
             <input
               type="number"
               className="form-control mt-2"
@@ -58,8 +60,10 @@ function AddClass() {
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-1 col-form-label text-bold">Name</label>
-          <div className="col-sm-6">
+          <label className="col-sm-1 col-form-label text-bold text-dark">
+            Name
+          </label>
+          <div>
             <input
               type="text"
               className="form-control"
@@ -72,8 +76,10 @@ function AddClass() {
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-1 col-form-label text-bold">Code</label>
-          <div className="col-sm-6">
+          <label className="col-sm-1 col-form-label text-bold text-dark">
+            Code
+          </label>
+          <div>
             <input
               type="text"
               className="form-control"
@@ -86,8 +92,10 @@ function AddClass() {
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-1 col-form-label text-bold">Create</label>
-          <div className="col-sm-6">
+          <label className="col-sm-1 col-form-label text-bold text-dark">
+            Create
+          </label>
+          <div>
             <input
               type="date"
               className="form-control"
@@ -97,8 +105,10 @@ function AddClass() {
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-1 col-form-label text-bold">Update</label>
-          <div className="col-sm-6">
+          <label className="col-sm-1 col-form-label font-bold text-dark">
+            Update
+          </label>
+          <div>
             <input
               type="date"
               className="form-control mb-2"
@@ -107,7 +117,10 @@ function AddClass() {
             />
           </div>
         </div>
-        <button  className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary me-4">Submit</button>
+        <Link to="/viewclasses">
+          <button className="btn btn-info">Cancel</button>
+        </Link>
       </form>
     </div>
   );
