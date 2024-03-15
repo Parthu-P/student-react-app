@@ -2,7 +2,8 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './addclass.css'
+import "./addclass.css";
+import * as yup from "yup";
 
 function AddClass() {
   let navigate = useNavigate();
@@ -14,9 +15,26 @@ function AddClass() {
       createdDate: new Date(),
       updatedDate: new Date(),
     },
+    validationSchema: yup.object({
+      classId: yup
+        .string()
+        .required("ClassId required")
+        .min(1, "ClassId is Empty")
+        .max(10),
+      name: yup
+        .string()
+        .required("Name is Required")
+        .min(2, "Name Too Short")
+        .max(15),
+      code: yup
+        .string()
+        .required("Code is Required")
+        .min(2, "Code Too Short")
+        .max(15),
+    }),
     onSubmit: (clas) => {
       axios.post("http://localhost:8080/api/class/create", clas);
-      navigate("/viewclasses")
+      navigate("/viewclasses");
     },
   });
   return (
@@ -34,7 +52,9 @@ function AddClass() {
               placeholder="Enter Id"
               name="classId"
               onChange={formik.handleChange}
+              {...formik.getFieldProps("classId")}
             />
+            <dd className="text-danger">{formik.errors.classId}</dd>
           </div>
         </div>
         <div className="mb-3 row">
@@ -46,7 +66,9 @@ function AddClass() {
               placeholder="Enter ClassName"
               name="name"
               onChange={formik.handleChange}
+              {...formik.getFieldProps.name}
             />
+            <dd className="text-danger">{formik.errors.name}</dd>
           </div>
         </div>
         <div className="mb-3 row">
@@ -58,7 +80,9 @@ function AddClass() {
               placeholder="Enter Code"
               name="code"
               onChange={formik.handleChange}
+              {...formik.getFieldProps.code}
             />
+            <dd className="text-danger">{formik.errors.code}</dd>
           </div>
         </div>
         <div className="mb-3 row">
@@ -83,7 +107,7 @@ function AddClass() {
             />
           </div>
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button  className="btn btn-primary">Submit</button>
       </form>
     </div>
   );

@@ -55,9 +55,9 @@ function StudentIndex() {
               <Route path="/viewclasses" element={<ViewClasses />} />
               <Route path="/viewsubjects" element={<ViewSubjects />} />
               <Route path="/viewclasses/addclass" element={<AddClass />} />
-              <Route path="/viewsubjects/addsubject" element={<AddSubject />} />
+              <Route path="/viewsubjects/addsubject" element={<AddSubject />}/>
               <Route path="/viewstudents/addstudent" element={<AddStudent />} />
-              <Route path="/viewclasses/editclass/:classId" element={<EditClass />} />
+              <Route path="/edit-class/:classId" element={<EditClass/>} />
             </Routes>
           </main>
         </section>
